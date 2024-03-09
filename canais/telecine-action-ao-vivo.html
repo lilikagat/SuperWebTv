@@ -2,22 +2,22 @@
 <html>
 
 <head>
-    <title>Player de Vídeo MPEG-TS</title>
-    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@latest"></script>
+    <title>Player MPEGTS</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://lilikagat.github.io/SuperWebTv/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
 </head>
 
 <body>
-    <video id="videoElement" controls width="100%" height="500px">
-    </video>
+    <video id="videoElement" controls width="100%" height="600"></video>
 
     <script>
         var player = mpegts.createPlayer({
-            type: 'mse', // or 'flv' if your video is flv format
-            isLive: false,
-            url: 'http://vod.syscdn.xyz:80/Formigatv/51736915tv/14931.ts'
+            type: 'mse', // or 'flv' if your video is in FLV format
+            isLive: true,
+            url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696.ts'
         }, {
             enableWorker: true,
-            lazyLoadMaxDuration: 3 * 60,
+            lazyLoadMaxDuration: 16 * 64,
             seekType: 'range',
         });
 
