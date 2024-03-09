@@ -3,27 +3,24 @@
 
 <head>
     <title>Player MPEGTS</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://lilikagat.github.io/SuperWebTv/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
 </head>
 
 <body>
     <video id="videoElement" controls width="100%" height="600"></video>
 
     <script>
-        var player = mpegts.createPlayer({
-            type: 'mse', // or 'flv' if your video is in FLV format
-            isLive: true,
-            url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696.ts'
-        }, {
-            enableWorker: true,
-            lazyLoadMaxDuration: 16 * 64,
-            seekType: 'range',
-        });
-
-        player.attachMediaElement(document.getElementById('videoElement'));
-        player.load();
-        player.play();
+        if (mpegts.getFeatureList().mseLivePlayback) {
+            var videoElement = document.getElementById('videoElement');
+            var player = mpegts.createPlayer({
+                type: 'mpegts', // Pode ser também 'mse', 'm2ts' ou 'flv'
+                isLive: true,
+                url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696.ts' // Substitua pela URL correta do seu vídeo
+            });
+            player.attachMediaElement(document.getElementById('videoElement'));
+            player.load();
+            player.play();
+        }
     </script>
 </body>
 
