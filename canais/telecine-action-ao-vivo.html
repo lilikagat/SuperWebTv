@@ -3,7 +3,7 @@
 
 <head>
     <title>Player MPEGTS</title>
-    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
 </head>
 
 <body>
@@ -13,9 +13,9 @@
         if (mpegts.getFeatureList().mseLivePlayback) {
             var videoElement = document.getElementById('videoElement');
             var player = mpegts.createPlayer({
-                type: 'mse', // Pode ser também 'mse', 'm2ts' ou 'flv'
+                type: 'mpegts', // Pode ser também 'mse', 'm2ts' ou 'flv'
                 isLive: false,
-                url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696' // Substitua pela URL correta do seu vídeo
+                url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696.m3u8' // Substitua pela URL correta do seu vídeo
             });
             player.attachMediaElement(document.getElementById('videoElement'));
             player.load();
