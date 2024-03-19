@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.8-0.canary.10104/dist/hls.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+        #video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            max-height: 100%;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<video id="video" controls></video>
+<script>
+function play_stream(url) {
+    var video = document.getElementById('video');
+    var m3u8Url = decodeURIComponent(url);
+
+    if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+        document.title = url;
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = m3u8Url;
+        video.addEventListener('loadedmetadata', function () {
+            video.play();
+        });
+        document.title = url;
+    }
+}
+
+var url = 'https://stream3.camara.gov.br/tv1/manifest.m3u8?JPFILMES';
+play_stream(url);
+</script>
+</body>
+</html>
