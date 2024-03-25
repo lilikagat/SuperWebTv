@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Player MPEGTS</title>
-    <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Disable
+function disableselect(e){
+return false
+}
+
+function reEnable(){
+return true
+}
+
+//if IE4+
+document.onselectstart=new Function ("return false")
+document.oncontextmenu=new Function ("return false")
+//if NS6
+if (window.sidebar){
+document.onmousedown=disableselect
+document.onclick=reEnable
+}
+//-->
+</script>
+<title>Telecine Action - Ao Vivo</title>
+<style>
+body {
+background-color: #000000
+}
+</style>
 </head>
-
 <body>
-    <video id="videoElement" controls width="100%" height="600"></video>
-
-    <script>
-        if (mpegts.getFeatureList().mseLivePlayback) {
-            var videoElement = document.getElementById('videoElement');
-            var player = mpegts.createPlayer({
-                type: 'mpegts', // Pode ser também 'mse', 'm2ts' ou 'flv'
-                isLive: false,
-                url: 'http://s.apkwuv.xyz/live/demopadexchange/demopad/147696.m3u8' // Substitua pela URL correta do seu vídeo
-            });
-            player.attachMediaElement(document.getElementById('videoElement'));
-            player.load();
-            player.play();
-        }
-    </script>
+<h1 style="text-align:center"><span style="color:#FFFFFF">Assistir Telecine Action - Online - 24 Horas - Ao Vivo</span></h1>
+<center><iframe width="100%" height="500" class="canal_player" src="https://reidoscanais.com/embed/?id=telecineaction" sandbox="allow-same-origin allow-scripts allow-top-navigation-to-custom-protocols"
+frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+picture-in-picture" allowfullscreen></iframe></center>
 </body>
-
 </html>
